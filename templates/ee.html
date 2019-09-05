@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flash by 면탱무</title>
+    <link rel="stylesheet"  href="static/reset.css">  <!--스타일 시트-->
+    <link rel="stylesheet"  href="static/bootstrap.css">  <!--스타일 시트-->
+    <link rel="stylesheet"  href="static/styles.css">  <!--스타일 시트-->
+    <link rel="stylesheet"  href="static/styleBt.css">  <!--스타일 시트-->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <style>
+TABLE, TD {font-size:20px} 
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 45%;
+
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+    <header>
+        <div>
+                <div id="hdl"></div>
+                <center><h1 id="trapezoid">Flash</h1></center>
+                 <div id="hdr">
+                        <ul id="navi" class="nav nav-tabs">
+                        <li role="presentation"><a href="#">Home</a></li>
+                        <li role="presentation"><a href="#">developer</a></li>
+                        <li role="presentation"><a href="#">Messages</a></li>
+                        </ul>
+                 </div>
+        </div>
+    </header>
+    <div id="myModal" class="modal">
+					<!-- Modal content -->
+        <span class="close">&times;</span>
+        <div id = 'content'class="modal-content">
+                <p>Some text in the Modal..</p>
+				<img id = 'returnImage' src=""/>
+        </div>
+        </div>
+    
+    <main class="container">
+        <section id="left" class="lr panel panel-default"> 
+            <div id="jemok1" class="panel-body"><p>Video</p></div>
+            <div id="videoplusimg" class="panel-footer">
+            <div id="fi_video">
+                <img src="{{url_for('video_feed')}}"width="100%"height="100%" />
+            </div>
+            <div id="fi_img">
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img class='imgunder' id = 'sibal' src=""/>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img class='imgunder' id = 'sibal2' src=""/>    
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail">  
+                        <img class='imgunder' id = 'sibal3' src=""/>   
+                        </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail">
+                        <img class='imgunder' id = 'sibal4' src=""/>       
+                        </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail"> 
+                        <img class='imgunder' id = 'sibal5' src=""/> 
+                        </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail">  
+                        <img class='imgunder' id = 'sibal6' src=""/>    
+                        </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail">
+                        <img class='imgunder' id = 'sibal7' src=""/>   
+                        </a>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail">
+                        <img class='imgunder' id = 'sibal8' src=""/>
+                        </a>
+                </div>
+                
+
+         </div>
+        </div>
+        </div>
+        </section>
+        <section id="right" class="lr" class="panel panel-default"> 
+                        <div id="jemok2" class="panel-body"><p>player</p></div>
+            <div id="fi_player">
+                    <table class="table table-striped" width="200" height="200">
+                        <tr id="select_table">
+                                <td class="pl_img" colspan="2" rowspan="1"><img id="ItemPreview" style="border : 3px solid white" src="" ></td>
+                                <td id="miniBox1" class="explain" style = "color : red"></td>
+                                <td id="miniBox1_si" class="explain"></td>
+                        </tr>   
+                        <tr id="select_table2">
+                                <td class="pl_img" colspan="2" rowspan="1"><img id="ItemPreview2" style="border : 3px solid white" src="" ></td>
+                                <td id="miniBox2" class="explain"></td>
+                                <td id="miniBox2_si" class="explain"></td>
+                        </tr>
+                        <tr id="select_table3">
+                                <td class="pl_img" colspan="2" rowspan="1"><img id="ItemPreview3"style="border : 3px solid white" src="" ></td>
+                                <td id="miniBox3"class="explain"></td>
+                                <td id="miniBox3_si"class="explain"></td>
+                        </tr>
+                        <tr id="select_table4">
+                                <td class="pl_img" colspan="2" rowspan="1"><img id="ItemPreview4"style="border : 3px solid white" src="" ></td>
+                                <td id="miniBox4" class="explain"></td>
+                                <td id="miniBox4_si" class="explain"></td>
+                        </tr>
+                </table>
+            </div>
+            <menu>
+                <fieldset id="buttonimg">
+                        <button id = "playButton" style = "color : black">시작하기</button>
+                        <button id = "stopButton" style = "color : black">닮은꼴</button>
+                </menu>
+        </section>
+    </main>
+<script>
+		var miniBox1 = document.getElementById("miniBox1");
+		var miniBox2 = document.getElementById("miniBox2");
+		var miniBox3 = document.getElementById("miniBox3");
+		var miniBox4 = document.getElementById("miniBox4");
+        
+		var miniBox1_si = document.getElementById("miniBox1_si");
+        var miniBox2_si = document.getElementById("miniBox2_si");
+        var miniBox3_si = document.getElementById("miniBox3_si");
+        var miniBox4_si = document.getElementById("miniBox4_si");
+        
+
+        var ItemPreview  = document.getElementById("ItemPreview");
+        var ItemPreview2  = document.getElementById("ItemPreview2");
+        var ItemPreview3  = document.getElementById("ItemPreview3");
+        var ItemPreview4  = document.getElementById("ItemPreview4");
+
+		
+
+		function myFunction(){
+    myVar = setInterval(function() {
+    $.ajax({
+        url: '/api/info',
+        success: function(data) {
+            $('#miniBox1').html(data['description2']);
+	        $('#miniBox1_si').html(data['description']);
+            var image_replace = data['image'].replace("b","").replace(/'/gi,'')
+            $('#ItemPreview').attr('src', `data:image/png;base64,${image_replace}`);
+              }
+          });
+    
+    $.ajax({
+        url: '/api/info2',
+        success: function(data) {
+            $('#miniBox2').html(data['description2']);
+		$('#miniBox2_si').html(data['description']);
+            var image_replace2 = data['image'].replace("b","").replace(/'/gi,'')
+            $('#ItemPreview2').attr('src', `data:image/png;base64,${image_replace2}`);
+              }
+          });
+    
+    $.ajax({
+        url: '/api/info3',
+        success: function(data) {
+            $('#miniBox3').html(data['description2']);
+		$('#miniBox3_si').html(data['description']);
+            var image_replace3 = data['image'].replace("b","").replace(/'/gi,'')
+            $('#ItemPreview3').attr('src', `data:image/png;base64,${image_replace3}`);
+              }
+          });
+    
+    $.ajax({
+        url: '/api/info4',
+        success: function(data) {
+         	$('#miniBox4').html(data['description2']);
+		$('#miniBox4_si').html(data['description']);
+            var image_replace4 = data['image'].replace("b","").replace(/'/gi,'')
+            $('#ItemPreview4').attr('src', `data:image/png;base64,${image_replace4}`);
+              }
+          });
+	},1000);
+
+	
+	
+	// Get the modal
+	var modal = document.getElementById('myModal');
+	var modalContent = document.getElementById('content');
+	// Get the button that opens the modal
+	var miniBox1 = document.getElementById("miniBox1");
+	var miniBox2 = document.getElementById("miniBox2");
+	var miniBox3 = document.getElementById("miniBox3");
+	var miniBox4 = document.getElementById("miniBox4");
+        
+
+	var select_table = document.getElementById("select_table");
+	var select_table2 = document.getElementById("select_table2");
+	var select_table3 = document.getElementById("select_table3");
+	var select_table4 = document.getElementById("select_table4");
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close");
+	var x = '<span class="close">&times;</span>'
+	var playButton = document.getElementById("playButton");
+	var stopButton = document.getElementById("stopButton");
+
+        
+	// 모달 콘텐트 스타일 
+	var contentStyle ='<style type="text/css">.tg  {border-collapse:collapse;border-spacing:0;border-color:#999;}.tg td{font-family: Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#444;background-color:#F7FDFA;}.tg th{font-family: Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#999;color:#fff;background-color:#26ADE4;}.tg .tg-yv6e{font-family: a시월구일1; background-color:#3c475b;border-color:inherit;text-align:left}.tg .tg-v6aa{font-family: a시월구일1; background-color:#d2d7dd;border-color:inherit;text-align:left;vertical-align:top}.tg .tg-y7f3{font-family: a시월구일1; background-color:#e2e2e2;border-color:inherit;text-align:left}.tg .tg-y3j4{font-family: a시월구일1; background-color:#e2e2e2;border-color:inherit;text-align:left}.tg .tg-gkra{font-family: a시월구일1; background-color:#414f74;border-color:inherit;text-align:left}.tg .tg-x823{font-family: a시월구일1; background-color:#d2d7dd;border-color:inherit;text-align:left}.tg .tg-ghqg{font-family: a시월구일1; background-color:#e2e2e2;border-color:inherit;text-align:left;vertical-align:top}.tg .tg-bbxk{font-family:a시월구일1, cursive, sans-serif !important;;background-color:#3c475b;border-color:inherit;text-align:left}@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;}}</style>';
+	// 황족 레알
+	var bale ='<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/Bale.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 가레스 베일</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1989.07.16(29세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 185cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 윙어</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%EC%82%AC%EC%9A%B0%EC%8A%A4%ED%96%84%ED%8A%BC%20FC?from=%EC%82%AC%EC%9A%B0%EC%83%98%ED%94%84%ED%84%B4%20FC">사우샘프턴FC </a>(2006~2007)<br><br><a href="https://namu.wiki/w/%ED%86%A0%ED%8A%B8%EB%84%98%20%ED%95%AB%EC%8A%A4%ED%8D%BC%20FC"><span style="font-weight:700">토트넘 훗스퍼 </span></a>(2007~2013)<a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:70></span></a><br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a>(2013~) <br><br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>토트넘 핫스퍼 FC(2007-08~2012-13): 1회 우승<br>EFL컵: 2007-08<br>레알 마드리드 CF(2013-14~): 15회 우승<br>프리메라리가: 2016-17<br>코파 델 레이: 2013-14<br>수페르코파 데 에스파냐: 2017-18<br>UEFA 챔피언스 리그(4): 2013-14, 2015-16, 2016-17, 2017-18<br>UEFA 슈퍼컵(3): 2014, 2016, 2017<br>FIFA 클럽 월드컵(4): 2014, 2016, 2017, 2018<br></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>우리형 없는 레알마드리드의 희망...? 이라고 불리었으나 역시나 고질적인 유리몸 + 6시즌이 넘는 시간동안 아직도 스페인어 구사 못함 + 축구보다 골프에 대한 광적인 집착으로 많은 팬들의 질타를 받고 있다. 그는 과연 우리형을 잇는 레알의 차세대 에이스가 될 것인가?!<br></td></tr></table></div>';
+	var kroos = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/kros.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 토니 크로스</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1990.01.04(29세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 183cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 중앙 미드필더, 수비형 미드필더</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/FC%20%EB%B0%94%EC%9D%B4%EC%97%90%EB%A5%B8%20%EB%AE%8C%ED%97%A8"><span style="font-weight:700">FC 바이에른 뮌헨 </span></a>(2007~2014) <br><br><a href="https://namu.wiki/w/TSV%20%EB%B0%94%EC%9D%B4%EC%96%B4%2004%20%EB%A0%88%EB%B2%84%EC%BF%A0%EC%A0%A0"><span style="font-weight:700">TSV 바이어 04 레버쿠젠 </span></a> (2009~2010, 임대)<br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a>(2014~)<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>FC 바이에른 뮌헨 (2007-08~2013-14): 우승 11회<br>분데스리가(3) : 2007-08, 2012-13, 2013-14<br>DFB-포칼(3) : 2007-08, 2012-13, 2013-14<br>DFB-리가포칼 : 2007<br>UEFA 챔피언스리그 : 2012-13<br>UEFA 슈퍼컵 : 2013<br>FIFA 클럽 월드컵 : 2013<br>레알 마드리드 CF (2014-15~ ): 우승 12회<br>프리메라리가 : 2016-17<br>UEFA 챔피언스리그(3) : 2015-16, 2016-17, 2017-18<br>UEFA 슈퍼컵(3) : 2014, 2016, 2017<br>FIFA 클럽 월드컵(4) : 2014, 2016, 2017, 2018<br>수페르코파 데 에스파냐 : 2017<br>독일 축구 국가대표팀 (2010~ ): 우승 1회<br>FIFA 월드컵 : 2014</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>토니크로스 뮌헨에서 f레알 마드리드로 이적해 온 월드클래스 미드필더이다. 교수님이라는 별명을 가지고 있다.<br> 2018러시아 월드컵 이후 부진한 모습을 보이는 듯 했으나 최근들어 다시 폼을 찾아오고 있는 추세이다.</td></tr></table></div>';
+	var ronaldo = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/ronaldo.jpg"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span> : 크리스티아누 호날두</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span> :  1985.02.05 (34세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>:  186cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>:  윙어, 스트라이커</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span> :  <a href="https://namu.wiki/w/%EC%8A%A4%ED%8F%AC%EB%A5%B4%ED%8C%85%20CP">스포르팅 CP </a>(2002~2003),  <a href="https://namu.wiki/w/%EB%A7%A8%EC%B2%B4%EC%8A%A4%ED%84%B0%20%EC%9C%A0%EB%82%98%EC%9D%B4%ED%8B%B0%EB%93%9C%20FC"><span style="font-weight:700">맨체스터 유나이티드 FC</span></a> <a href="https://namu.wiki/w/%EB%A7%A8%EC%B2%B4%EC%8A%A4%ED%84%B0%20%EC%9C%A0%EB%82%98%EC%9D%B4%ED%8B%B0%EB%93%9C%20FC"><span style="font-weight:700"> </span></a>(2003~2009),  <a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a> <a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700"> </span></a>(2009~2018),  <a href="https://namu.wiki/w/%EC%9C%A0%EB%B2%A4%ED%88%AC%EC%8A%A4%20FC">유벤투스 FC </a>(2018~)</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>스포르팅 CP(2002-03): 1회<br>맨체스터 유나이티드 FC(2003-04~2008-09): 10회 우승 <br>레알 마드리드 CF(2009-10~2017-18): 16회 우승  프리메라 리가(2): 2011-12, 2016-17 코파 델 레이(2): 2010-11, 2013-14 수페르코파 데 에스파냐(2): 2012, 2017 UEFA <br>챔피언스 리그(4): 2013-14, 2015-16, 2016-17, 2017-18 UEFA 슈퍼컵(3): 2014, 2016, 2017 FIFA 클럽 월드컵(3): 2014, 2016, 2017 <br>유벤투스(2018-19~): 1회 우승 :  수페르코파 이탈리아나: 2018<br>포르투갈 축구 국가대표팀(2003~): 1회 우승 UEFA 유로: 2016</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>말이 필요한가 우리는 메호의 시대에 살고 있다.우리형,짱날두, 킹날두 킹갓제너럴엠퍼럴갓두 등등 수많은 별명으로 불리며 많은 나이에도 아직 신계의 폼을 유지하고 있다. <br>과연 이 선수의 끝은 어디일지 앞으로의 행보가 기대된다<br></td></tr></table></div>';
+	var asensio = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/asensio.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 마르코 아센시오</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1996.01.21(23세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 183cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 윙어</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EC%9A%94%EB%A5%B4%EC%B9%B4?from=RCD%20%EB%A7%88%EC%9A%94%EB%A5%B4%EC%B9%B4"><span style="font-weight:700">RCD 마요르카</span></a>(2013~2014)  <br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a>(2014~)<br><br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EC%9A%94%EB%A5%B4%EC%B9%B4?from=RCD%20%EB%A7%88%EC%9A%94%EB%A5%B4%EC%B9%B4"><span style="font-weight:700">RCD 마요르카</span></a>(2014~2015, 임대) <br><br><br><a href="https://namu.wiki/w/RCD%20%EC%97%90%EC%8A%A4%ED%8C%8C%EB%87%B0"><span style="font-weight:700">RCD 에스파뇰</span></a>(2015~2016, 임대)<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>레알 마드리드 CF (2016 ~) : 총 9회<br>라리가 : 2016-17<br>수페르코파 데 에스파냐 : 2017<br>UEFA 챔피언스리그 : 2016-17 , 2017-18<br>UEFA 슈퍼컵 : 2016 , 2017<br>클럽 월드컵 : 2016 , 2017 , 2018<br>스페인 축구 국가대표팀: 총 1회 우승<br>UEFA U-19 선수권 대회 : 2015</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>아센시오는 이스코와 함께 같은 스페인 출신으로 레알의 차세대 에이스라 불리우며 많은 기대를 받았으나 <br>역시 이번 18-19시즌에는 상당히 부진한 모습을 보이고 있다.</td></tr></table></div>';
+	var benzema = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/benzema.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 카림 벤제마</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1987.12.19 (31세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 185cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 스트라이커</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%EC%98%AC%EB%9E%AD%ED%94%BC%ED%81%AC%20%EB%A6%AC%EC%98%B9"><span style="font-weight:700">올랭피크 리옹 B</span></a>(2004~2006)<br><br><a href="https://namu.wiki/w/%EC%98%AC%EB%9E%AD%ED%94%BC%ED%81%AC%20%EB%A6%AC%EC%98%B9"><span style="font-weight:700">올랭피크 리옹</span></a>(2006~2009)<br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a>(2009~)<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>올림피크 리옹(2004-05~2008-09): 7회 우승<br>리그 1(4): 2004-05, 2005-06, 2006-07, 2007-08<br>쿠프 드 프랑스(1): 2007-08<br>트로페 데 샹피옹(2): 2006, 2007<br>레알 마드리드 CF(2009-10~): 17회 우승<br>프리메라 리가(2): 2011-12, 2016-17<br>코파 델 레이(2): 2010-11, 2013-14<br>수페르코파 데 에스파냐(2): 2012, 2017<br>UEFA 챔피언스 리그(4): 2013-14, 2015-16, 2016-17, 2017-18<br>UEFA 슈퍼컵(3): 2014, 2016, 2017<br>FIFA 클럽 월드컵 (4): 2014, 2016, 2017, 2018<br>프랑스 축구 국가대표팀: 1회 우승<br>UEFA U-17 챔피언십: 2004</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>벤제마는 한 때 월클반열에 오르던 스트라이커였지만 16-17시즌을 기점으로 점차 하락세를 타기 시작했으며 <br>최근에는 잠깐 손가락부상을 당하고 보호대를 착용하고 경기를 뛴 후 이과인을 몰아낼 때의 폼을 되찾으며 다시금 월드클래스 시절의 모습을 보여주나 했으나<br> 역시나 바로 버로우를 타버리고 말았다. 그는 과연 은퇴전에 다시 부활 할 수 있을까...? 레알 팬들은 오늘도 외친다 황제마 종신</td></tr></table></div>';
+	var carvajal = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/carvajal.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 다니 카르바할</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1992.01.11 (27세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 173cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 라이트백</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20%EC%B9%B4%EC%8A%A4%ED%8B%B0%EC%95%BC%20CF"><span style="font-weight:700">레알 마드리드 카스티야 CF</span></a>(2010~2012)<br><br><a href="https://namu.wiki/w/TSV%20%EB%B0%94%EC%9D%B4%EC%96%B4%2004%20%EB%A0%88%EB%B2%84%EC%BF%A0%EC%A0%A0"><span style="font-weight:700">TSV 바이어 04 레버쿠젠</span></a>(2012~2013) <br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a>(2013~)<br?</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>레알 마드리드 CF(2013~): 14회 우승<br>프리메라리가: 2016-17<br>코파 델 레이: 2013-14<br>UEFA 챔피언스 리그(4): 2013-14, 2015-16, 2016-17, 2017-18<br>수페르코파 데 에스파냐: 2017<br>UEFA 슈퍼컵(3): 2014, 2016, 2017<br>FIFA 클럽 월드컵(4) : 2014, 2016, 2017, 2018</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>다니 카르바할 유스 시절 임대 경험을 바탕으로 지금은 레알의 굳건한 라이트백 지위를 지키고 있다. <br> 그러나 이러한 그 역시 18-19시즌은 잦은 부상으로 경기를 나오지 못하고 있으며 이러다가 유리몸으로 전락해버리는 것은 아닌가 하는 세간의 걱정을 사고 있다<br></td></tr></table></div>';
+	var casemiro = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/casemiro.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 카세미루</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1992.02.23(27세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 185cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 수비형 미드필더</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%EC%83%81%ED%8C%8C%EC%9A%B8%EB%A3%A8%20FC"><span style="font-weight:700">상파울루 FC</span></a>(2010~2013) <br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20%EC%B9%B4%EC%8A%A4%ED%8B%B0%EC%95%BC%20CF"><span style="font-weight:700">레알 마드리드 카스티야 CF (임대) </span></a> (2013)<br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a> (2013) (임대)<br><br><a href="https://namu.wiki/w/FC%20%ED%8F%AC%EB%A5%B4%ED%88%AC"><span style="font-weight:700">FC 포르투</span></a>  (2014~2015) (임대)<br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a>(2013~)<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>상파울루 FC(2010-11~2011-12): 1회 우승<br>코파 수다메리카나: 2012<br>레알 마드리드 CF(2013-14, 2015-16~): 12회 우승<br>프리메라리가: 2016-17<br>코파 델 레이: 2013-14<br>UEFA 챔피언스 리그(4): 2013-14, 2015-16, 2016-17, 2017-18<br>수페르코파 데 에스파냐: 2017<br>UEFA 슈퍼컵(2): 2016, 2017<br>FIFA 클럽 월드컵(3) : 2016, 2017, 2018</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>세계최고 미들진이라고 불리는 크-카-모 라인에서 카를 맡고 있는 카세미루 <br>가끔 뜬끔없이 중거리 원더골을 보여주기도 하지만 그런 골 이후 항상 자신의 본분을 잊고 공격적으로 나서는 바람에 실점의 빌미를 제공하기도 한다.</td></tr></table></div>';
+	var isco = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/isco.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 이스코</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1992.04.21(26세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 176cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 공격형 미드필더, 윙어</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%EB%B0%9C%EB%A0%8C%EC%8B%9C%EC%95%84%20CF%20%EB%A9%94%EC%8A%A4%ED%83%80%EC%95%BC"><span style="font-weight:700">발렌시아 CF 메스타야</span></a> (2009~2011) <br><br><a href="https://namu.wiki/w/%EB%B0%9C%EB%A0%8C%EC%8B%9C%EC%95%84%20CF"><span style="font-weight:700">발렌시아 CF</span></a> (2010~2011)<br><br><a href="https://namu.wiki/w/%EB%A7%90%EB%9D%BC%EA%B0%80%20CF"><span style="font-weight:700">말라가 CF</span></a> (2011~2013)<br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a>(2013~)<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>레알 마드리드 CF(2013-14~): 14회 우승<br>프리메라리가: 2016-17<br>코파 델 레이: 2013-14<br>UEFA 챔피언스 리그(4): 2013-14, 2015-16, 2016-17, 2017-18<br>수페르코파 데 에스파냐: 2017<br>UEFA 슈퍼컵(3): 2014, 2016, 2017<br>FIFA 클럽 월드컵(4) : 2014, 2016, 2017, 2018</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>이스코는 레알의 차세대 에이스라고 불리던 선수였다. 스페인 출신이기도 하기 때문에 그에게 거는 기대가 컸지만 17-18시즌부터 점차 부진하다가<br> 18-19시즌 역대급 부침기를 겪고 있다. 다시 반등할 수 있을까?!</td></tr></table></div>';
+	var marcelo = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/marcelo.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 마르셀루</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1988.05.12 (30세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 174cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 레프트백</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/GNK%20%EB%94%94%EB%82%98%EB%AA%A8%20%EC%9E%90%EA%B7%B8%EB%A0%88%EB%B8%8C"><span style="font-weight:700">플루미넨시 FC</span></a>(2006)<br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a>(2006~)<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>플루미넨시 FC(2005-06~2006-07) : 2회 우승<br>캉페오나투 카리오카: 2005<br>타시 히우: 2005<br>레알 마드리드(2006-07~) : 20회 우승<br>프리메라 리가(4): 2006-07, 2007-08, 2011-12, 2016-17<br>코파 델 레이(2): 2010-11, 2013-14<br>수페르코파 데 에스파냐(3): 2008, 2012, 2017<br>UEFA 챔피언스리그(4): 2013-14, 2015-16, 2016-17, 2017-18<br>UEFA 슈퍼컵(3): 2014, 2016, 2017<br>FIFA 클럽 월드컵(4): 2014, 2016, 2017, 2018<br>브라질 축구 국가대표팀 : 1회 우승<br>FIFA 컨페더레이션스컵: 2013<br>2012 런던 올림픽 은메달</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>마르셀루는 브라질 출신의 레프트백으로 세계에서 꼽히는 월드클래스 레프트백이다. 그러나 이번 시즌에는 레알의 유스 레길론에게 주전자리를 내주는 듯 보였으나 지단감독의 복귀로 다시 한번 신임받고 있다. <br>과연 그는 다시금 주전자리를 찾아올 수 있을 것인가 <br></td></tr></table></div>';
+	var modric = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/modric.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 루카 모드리치</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1985.09.09 (33세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 172cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 중앙 미드필더</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/GNK%20%EB%94%94%EB%82%98%EB%AA%A8%20%EC%9E%90%EA%B7%B8%EB%A0%88%EB%B8%8C"><span style="font-weight:700">GNK 디나모 자그레브 </span></a>(2003~2008)<br><br><span style="font-weight:700">HSK 즈리니스키 모스타르</span>(2003~2004 임대) <br><br><span style="font-weight:700">FK 인테르 자프레시치</span>(2004~2005 임대)<br><br><a href="https://namu.wiki/w/%ED%86%A0%ED%8A%B8%EB%84%98%20%ED%95%AB%EC%8A%A4%ED%8D%BC%20FC"><span style="font-weight:700">토트넘 핫스퍼 FC</span></a>(2008~2012)<br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a>(2012~)<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>GNK 디나모 자그레브(2003-04~2007-08): 5회 우승<br>프르바 HNL (3): 2005-06, 2006-07, 2007-08<br>크로아티안 컵 (2): 2006-07, 2007-08<br>레알 마드리드 CF(2012-13~): 15회 우승<br>프리메라리가: 2016-17<br>수페르코파 데 에스파냐(2): 2012, 2017<br>코파 델 레이: 2013-14<br>UEFA 챔피언스리그(4): 2013-14, 2015-16, 2016-17, 2017-18<br>UEFA 슈퍼컵(3): 2014, 2016, 2017<br>FIFA 클럽 월드컵(4): 2014, 2016, 2017, 2018</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>루카 모드리치는 우리형 없는 레알의 에이스라고 볼 수 있다. <br>2018 러시아 월드컵 때의 활약을 바탕으로 발롱도르를 수상하기도 하였으며 "모언니"라는 애칭으로 팬들에게 불리곤 한다. <br></td></tr></table></div>';
+	var nacho = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/nacho.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 나초</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1990.01.18(29세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 180cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 센터백, 좌/우 풀백</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20%EC%B9%B4%EC%8A%A4%ED%8B%B0%EC%95%BC%20CF"><span style="font-weight:700">레알 마드리드 카스티야 CF</span></a> (2009~2013)<br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a>(2013~)<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>레알 마드리드 카스티야: 총 1회 우승<br>세군다 디비전 B: 2011-12<br>레알 마드리드 CF: 총 14회 우승<br>프리메라리가: 2016-17<br>코파 델 레이: 2013-14<br>UEFA 챔피언스리그: 2013-14, 2015-16, 2016-17, 2017-18<br>수페르코파 데 에스파냐: 2012, 2017<br>UEFA 슈퍼컵: 2016, 2017<br>FIFA 클럽 월드컵: 2014, 2016, 2017, 2018<br>스페인 축구 국가대표팀: 총 2회 우승<br>UEFA U-17 챔피언십: 2007<br>UEFA U-21 챔피언십: 2013</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>레알 마드리드 선수단 중에서 가장 화려한(?) 경력을 자랑한다. 마드리드 태생이며, 레알 마드리드 카스티야 출신에, 카스티야 주장까지 역임했으며,<br> 1군 콜업 이후 임대조차 가본적이 없다.지어 충성심을 드러내는 인터뷰에 매 시즌 성장하면서 전천후 준주전 선수로까지 성장했다. 그러나 최근에는 떨어진 퍼포먼스로 인하여 좋은 모습을 보여주지 못하고 있다.</td></tr></table></div>';
+	var navas = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/navas.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 케일러 나바스</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1986.12.15 (32세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 185cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 골기퍼</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br>: 데포르티보 사프리사 (2005~2010)<br><br><a href="https://namu.wiki/w/%EC%95%8C%EB%B0%94%EC%84%B8%ED%85%8C%20%EB%B0%9C%EB%A1%AC%ED%94%BC%EC%97%90"><span style="font-weight:700">알바세테 발롬피에</span></a>(2010~2012) <br><br><a href="https://namu.wiki/w/%EB%A0%88%EB%B0%98%ED%85%8C%20UD"><span style="font-weight:700">레반테UD</span></a>(2011~2014)<br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF">레알마드리드 CF</a>(2014~)<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>데포르티보 사프리사(2005-06~2009-10): 7회 우승<br>코스타리카 프리메라 디비시온(6): 2005-06, 2006-07, 2007-08 동계/하계, 2008-09 동계, 2009-10 하계<br>CONCACAF 챔피언스 리그: 2005<br>레알 마드리드 CF(2014-15~): 12회 우승<br>프리메라리가: 2016-17<br>UEFA 챔피언스리그(3): 2015-16, 2016-17, 2017-18<br>수페르코파 데 에스파냐: 2017<br>UEFA 슈퍼컵(3): 2014, 2016, 2017<br>FIFA 클럽 월드컵(4): 2014, 2016, 2017, 2018</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>케일러 나바스, 카시야스가 부동의 넘버원 골기퍼 자리를 지키다가 포르투로 이적한 후 레알의 넘버원 골기퍼가 되었다. 그러나 언제나 각종 이적설에 휩싸였으며 이번 시즌에는 한 때 쿠르투와에게 주전 자리를 내주기도 했다. 지단 감독이 복귀하면서 다시 주전 골기퍼 경쟁반열에 합류했다.<br> 그는 과연 레알의 주전 골기퍼로 다시 거듭날것인가?<br></td></tr></table></div>';
+	var ramos = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/ramos.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 세르히오 라모스</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1986.03.30 (32세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 184cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 센터백</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%EC%84%B8%EB%B9%84%EC%95%BC%20%EC%95%84%ED%8B%80%EB%A0%88%ED%8B%B0%EC%BD%94%20%ED%81%B4%EB%A3%A8%EB%B8%8C?from=%EC%84%B8%EB%B9%84%EC%95%BC%20FC%20B"><span style="font-weight:700">세비야 FC B </span></a>(2003-2004)<br><br><a href="https://namu.wiki/w/%EC%84%B8%EB%B9%84%EC%95%BC%20FC"><span style="font-weight:700">세비야 FC</span></a> (2004-2005)<br><br><a href="https://namu.wiki/w/%EB%A0%88%EC%95%8C%20%EB%A7%88%EB%93%9C%EB%A6%AC%EB%93%9C%20CF"><span style="font-weight:700">레알 마드리드 CF</span></a>(2005~)<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span><br><br>레알 마드리드 CF(2005-06~ ): 20회 우승<br>프리메라리가(4): 2006-07, 2007-08, 2011-12, 2016-17<br>코파 델 레이(2): 2010-11, 2013-14<br>수페르코파 데 에스파냐(3): 2008, 2012, 2017<br>UEFA 챔피언스 리그(4): 2013-14, 2015-16, 2016-17, 2017-18<br>UEFA 슈퍼컵(3): 2014, 2016, 2017<br>FIFA 클럽 월드컵(4): 2014, 2016, 2017, 2018<br>스페인 축구 국가대표팀(2005~ ): 3회 우승<br>FIFA 월드컵: 2010<br>UEFA 유로(2): 2008, 2012</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>라장군  킹모스라고도 불리는 세르히오 라모스는 레알의 캡틴으로 세비야에서 이적한 이래 2005년 부터 레알에서 뛴 레알의 레전드이다. <br>같은 팀이라면 언제나 든든하지만 상대팀, 상대팀 팬입장에서는 그만큼 너무난도 밉상인 선수이다 그러나 역대 센터백 탑 반열에 들어갈만한 뛰어난 실력을 갖춘 선수이다.</td></tr></table></div>';
+
+	// 로또풀 
+	var arnold = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/arnold.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 알렉산더 아놀드</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1998.10.07(20세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 175cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 라이트백 수비형 미드필더</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%EB%A6%AC%EB%B2%84%ED%92%80%20FC"><span style="font-weight:700">리버풀 FC </span></a>(2016~ )<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>잉글랜드 국적의 축구 선수. 주 포지션은 라이트백이다. 오언, 제라드 이후로 <br>오랜만에 나온 리버풀의 탑클래스 로컬 보이이며 현 시점 세계 최고의 풀백 유망주로 평가받고 있다.</td></tr></table></div>';
+	var firmino = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/firmino.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 호베르투 피르미누</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1991.10.02(27세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 181cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 스트라이커, 공격형 미드필더</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%ED%94%BC%EA%B2%8C%EC%9D%B4%EB%A0%8C%EC%8B%9C%20FC"><span style="font-weight:700">피게이렌시 FC</span></a>(2009~2010)  <br><br><a href="https://namu.wiki/w/FC%20%EB%A0%88%EB%93%9C%EB%B6%88%20%EC%9E%98%EC%B8%A0%EB%B6%80%EB%A5%B4%ED%81%AC"><span style="font-weight:700">TSG 1899 호펜하임</span></a> (2011~2015)<br><br><a href="https://namu.wiki/w/%EB%A6%AC%EB%B2%84%ED%92%80%20FC"><span style="font-weight:700">리버풀 FC </span></a>(2015~ )<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>브라질 국적의 리버풀 FC 소속 축구선수이다. 스케일링한 하얀치아로 인해 모니터에서 그를 보게 되면 치아밖에 보이지 않는다.</td></tr></table></div>';
+	var henderson = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/henderson.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 조던 핸더슨</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1990.06.17(28세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 187cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 중앙 미드필더, 수비형 미드필더</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%EC%84%A0%EB%8D%9C%EB%9E%9C%EB%93%9C%20AFC"><span style="font-weight:700">선덜랜드 AFC</span></a>(2008~2011)<br><br><a href="https://namu.wiki/w/%EC%BD%94%EB%B2%88%ED%8A%B8%EB%A6%AC%20%EC%8B%9C%ED%8B%B0%20FC"><span style="font-weight:700">코번트리 시티 FC</span></a> (2009, 임대)<br><br><a href="https://namu.wiki/w/%EB%A6%AC%EB%B2%84%ED%92%80%20FC"><span style="font-weight:700">리버풀 FC </span></a>(2011~ )<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>조던 헨더슨은 주 포지션이 수비형 미드필더인 축구선수이다. 캡틴으로서의 역할을 충실히 수행해 내고 있다.</td></tr></table></div>';
+	var karius = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/karius.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 로리스 카리우스</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1993.06.22(25세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 189cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 골기퍼</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%EB%A7%A8%EC%B2%B4%EC%8A%A4%ED%84%B0%20%EC%8B%9C%ED%8B%B0%20FC"><span style="font-weight:700">맨체스터 시티 FC</span></a>(2010~2011)<br><br><a href="https://namu.wiki/w/1.%20FSV%20%EB%A7%88%EC%9D%B8%EC%B8%A0%2005?from=1.FSV%20%EB%A7%88%EC%9D%B8%EC%B8%A005"><span style="font-weight:700">FSV 마인츠05 </span></a> (2011, 임대)<br><br><a href="https://namu.wiki/w/1.%20FSV%20%EB%A7%88%EC%9D%B8%EC%B8%A0%2005?from=1.FSV%20%EB%A7%88%EC%9D%B8%EC%B8%A005"><span style="font-weight:700">FSV 마인츠05 </span></a> (2012~2016)<br><br><a href="https://namu.wiki/w/%EB%A6%AC%EB%B2%84%ED%92%80%20FC"><span style="font-weight:700">리버풀 FC </span></a>(2016~ )<br><br><br><a href="https://namu.wiki/w/%EB%B2%A0%EC%8B%9D%ED%83%80%EC%8A%88%20JK"><span style="font-weight:700">베식타슈 JK</span></a>(2018~, 임대)</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>전 리버풀 F.C. 골키퍼이자 베식타슈 JK에서 뛰고 있는 독일 출신 축구선수이다. <br>17-18챔피언스리그 결승전에서 말 그대로 세계를 경악케 하는 실수를 보여주며 팀의 3-1 패배에 기여했다. 그 이후로 쭈욱 내리막을 타는 추세이다.</td></tr></table></div>';
+	var lallana = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/lallana.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 아담 랄라나</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1988.05.10(30세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 175cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 공격형 미드필더, 윙어</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%EC%82%AC%EC%9A%B0%EC%8A%A4%ED%96%84%ED%8A%BC%20FC"><span style="font-weight:700">사우스햄튼 FC</span></a>(2006~2014)<br><br><a href="https://namu.wiki/w/AFC%20%EB%B3%B8%EB%A8%B8%EC%8A%A4"><span style="font-weight:700">AFC 본머스</span></a>(2007, 임대)<br><br><a href="https://namu.wiki/w/%EB%A6%AC%EB%B2%84%ED%92%80%20FC"><span style="font-weight:700">리버풀 FC </span></a>(2014~ )<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>리버풀 FC에서 뛰는 잉글랜드 국적의 축구선수. 2선 어느 곳에서 뛸 수 있으나, 최근에는 주로 중앙 미드필더로 출장한다.</td></tr></table></div>';
+	var lovren = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/lovren.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 데얀 로브렌</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1989.07.05(29세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 189cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 센터백</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/FC%20%ED%9D%90%EB%A1%9C%EB%8B%9D%EC%96%B8"><span style="font-weight:700">GNK 디나모 자그레브</span></a>(2006~2010)<br><br><span style="font-weight:700">NK 인테르 자프레시치</span> (2006~2008, 임대)<br><br><a href="https://namu.wiki/w/%EC%98%AC%EB%9E%AD%ED%94%BC%ED%81%AC%20%EB%A6%AC%EC%98%B9"><span style="font-weight:700">올랭피크 리옹</span></a> (2010~2013)<br><br><a href="https://namu.wiki/w/%EC%82%AC%EC%9A%B0%EC%8A%A4%ED%96%84%ED%8A%BC%20FC"><span style="font-weight:700">사우스햄튼 FC</span></a>(2013~2014)<br><br><a href="https://namu.wiki/w/%EB%A6%AC%EB%B2%84%ED%92%80%20FC"><span style="font-weight:700">리버풀 FC </span></a>(2014~ )<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>크로아티아 국적의 축구 선수이며, 현재 리버풀 FC에 소속되어 있다. 리버풀 팬들에겐 또 다른 기적을 만들어 낸 선수로 기억되고 있고 러시아 월드컵을 거치며 크로아티아의 핵심 수비수로 거듭났다. <br>그러나 가끔식 보여주는 그의 뇌절 수비는 많은 팬들의 가슴을 아프게 했다</td></tr></table></div>';
+	var mane = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/mane.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 사디오 마네</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1992.04.10(26세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 175cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 윙어</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/FC%20%EB%A9%94%EC%8A%A4"><span style="font-weight:700">FC 메스</span></a>(2011~2012)  <br><br><a href="https://namu.wiki/w/FC%20%EB%A0%88%EB%93%9C%EB%B6%88%20%EC%9E%98%EC%B8%A0%EB%B6%80%EB%A5%B4%ED%81%AC"><span style="font-weight:700">FC 레드불 잘츠부르크</span></a>(2012~2014)<br><br><br><a href="https://namu.wiki/w/%EC%82%AC%EC%9A%B0%EC%8A%A4%ED%96%84%ED%8A%BC%20FC"><span style="font-weight:700">사우스햄튼 FC</span></a>(2014~2016)<br><br><br><a href="https://namu.wiki/w/%EB%A6%AC%EB%B2%84%ED%92%80%20FC"><span style="font-weight:700">리버풀 FC </span></a>(2016~ )<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>세네갈 출신 리버풀 FC 소속 축구 선수이다. 주 포지션은 윙어. 현재 아프리카 최고의 선수 하나라는 평가를 받고 있다. <br>세네갈 사자 군단의 주장이자 팀의 에이스이기도 하다.</td></tr></table></div>';
+	var milner = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/milner.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 제임스 밀너</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1986.01.04(33세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 177cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 윙어, 중앙 미드필더</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><span style="font-weight:700">아랍 콘트랙터스 SC</span></a> (2010~2012)<br><br><a href="https://namu.wiki/w/%EB%A6%AC%EC%A6%88%20%EC%9C%A0%EB%82%98%EC%9D%B4%ED%8B%B0%EB%93%9C%20FC"><span style="font-weight:700">리즈 유나이티드 FC</span> (2002~2004)<br><br><a href="https://namu.wiki/w/%EC%8A%A4%EC%9C%88%EB%8D%98%20%ED%83%80%EC%9A%B4%20FC"><span style="font-weight:700">스윈던 타운 FC</span></a> (2003, 임대)<br><br><a href="https://namu.wiki/w/%EB%89%B4%EC%BA%90%EC%8A%AC%20%EC%9C%A0%EB%82%98%EC%9D%B4%ED%8B%B0%EB%93%9C%20FC"><span style="font-weight:700">뉴캐슬 유나이티드 FC</span></a>(2004~2008)<br><br><a href="https://namu.wiki/w/%EC%95%84%EC%8A%A4%ED%86%A4%20%EB%B9%8C%EB%9D%BC%20FC"><span style="font-weight:700">아스톤 빌라 FC</span></a>(2005~2006, 임대)<br><br><a href="https://namu.wiki/w/%EC%95%84%EC%8A%A4%ED%86%A4%20%EB%B9%8C%EB%9D%BC%20FC"><span style="font-weight:700">아스톤 빌라 FC</span></a> (2008~2010)<br><br><a href="https://namu.wiki/w/%EB%A7%A8%EC%B2%B4%EC%8A%A4%ED%84%B0%20%EC%8B%9C%ED%8B%B0%20FC"><span style="font-weight:700">맨체스터 시티 FC</span></a> (2010~2015)<br><br><a href="https://namu.wiki/w/%EB%A6%AC%EB%B2%84%ED%92%80%20FC"><span style="font-weight:700">리버풀 FC </span></a>(2015~ )<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>잉글랜드 출신 축구선수로 중앙 미드필더부터 윙어, 세컨드 스트라이커는 물론, 풀백까지도 소화할 수 있는 만능 유틸리티 플레이어이다. 헌신적이고 성실한 태도로 꾸준한 활약을 보이고 있으며 <br> EPL 통산 도움 7위,역대 UCL 단일시즌 최다 어시스트[5] 기록 보유자이기도 하다</td></tr></table></div>';
+	var robertson = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/milner.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 제임스 밀너</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1986.01.04(33세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 177cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 윙어, 중앙 미드필더</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><span style="font-weight:700">아랍 콘트랙터스 SC</span></a> (2010~2012)<br><br><a href="https://namu.wiki/w/%EB%A6%AC%EC%A6%88%20%EC%9C%A0%EB%82%98%EC%9D%B4%ED%8B%B0%EB%93%9C%20FC"><span style="font-weight:700">리즈 유나이티드 FC</span> (2002~2004)<br><br><a href="https://namu.wiki/w/%EC%8A%A4%EC%9C%88%EB%8D%98%20%ED%83%80%EC%9A%B4%20FC"><span style="font-weight:700">스윈던 타운 FC</span></a> (2003, 임대)<br><br><a href="https://namu.wiki/w/%EB%89%B4%EC%BA%90%EC%8A%AC%20%EC%9C%A0%EB%82%98%EC%9D%B4%ED%8B%B0%EB%93%9C%20FC"><span style="font-weight:700">뉴캐슬 유나이티드 FC</span></a>(2004~2008)<br><br><a href="https://namu.wiki/w/%EC%95%84%EC%8A%A4%ED%86%A4%20%EB%B9%8C%EB%9D%BC%20FC"><span style="font-weight:700">아스톤 빌라 FC</span></a>(2005~2006, 임대)<br><br><a href="https://namu.wiki/w/%EC%95%84%EC%8A%A4%ED%86%A4%20%EB%B9%8C%EB%9D%BC%20FC"><span style="font-weight:700">아스톤 빌라 FC</span></a> (2008~2010)<br><br><a href="https://namu.wiki/w/%EB%A7%A8%EC%B2%B4%EC%8A%A4%ED%84%B0%20%EC%8B%9C%ED%8B%B0%20FC"><span style="font-weight:700">맨체스터 시티 FC</span></a> (2010~2015)<br><br><a href="https://namu.wiki/w/%EB%A6%AC%EB%B2%84%ED%92%80%20FC"><span style="font-weight:700">리버풀 FC </span></a>(2015~ )<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>잉글랜드 출신 축구선수로 중앙 미드필더부터 윙어, 세컨드 스트라이커는 물론, 풀백까지도 소화할 수 있는 만능 유틸리티 플레이어이다. 헌신적이고 성실한 태도로 꾸준한 활약을 보이고 있으며 <br> EPL 통산 도움 7위,역대 UCL 단일시즌 최다 어시스트[5] 기록 보유자이기도 하다</td></tr></table></div>';
+	var sala = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/sala.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 모하메드 살라</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1992.06.15(26세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 175cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 윙어, 스트라이커</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><span style="font-weight:700">아랍 콘트랙터스 SC</span></a> (2010~2012)<br><br><a href="https://namu.wiki/w/%ED%94%BC%EA%B2%8C%EC%9D%B4%EB%A0%8C%EC%8B%9C%20FC"><span style="font-weight:700">아랍 콘트랙터스 SC</span> (2010~2012)<br><br><a href="https://namu.wiki/w/FC%20%EB%B0%94%EC%A0%A4"><span style="font-weight:700">FC 바젤</span></a>(2012~2014)<br><br><a href="https://namu.wiki/w/%EC%B2%BC%EC%8B%9C%20FC"><span style="font-weight:700">첼시 FC</span></a> (2014~2016)<br><br><a href="https://namu.wiki/w/ACF%20%ED%94%BC%EC%98%A4%EB%A0%8C%ED%8B%B0%EB%82%98"><span style="font-weight:700">ACF 피오렌티나</span></a> (2015, 임대)<br><br><a href="https://namu.wiki/w/AS%20%EB%A1%9C%EB%A7%88"><span style="font-weight:700">AS 로마</span></a>(2015~2016, 임대)<br><br><a href="https://namu.wiki/w/AS%20%EB%A1%9C%EB%A7%88"><span style="font-weight:700">AS 로마</span></a>(2016~2017)<br><br><a href="https://namu.wiki/w/%EB%A6%AC%EB%B2%84%ED%92%80%20FC"><span style="font-weight:700">리버풀 FC </span></a>(2017~ )<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>이집트의 축구 선수로 현재 리버풀 FC에서 뛰고 있으며 리버풀과 이집트 축구 국가대표팀의 에이스로 활약하고 있다. <br>첼시와 로마시절만 하더라도 그저그런 아니 그저그런 축에도 끼지 못하던 선수였지만 17-18시즌의 미친활약을 시작으로 월드 클래스의 반열에 오르나 했으나 최근 18-19시즌은 부진하는 중이다. 과연 킹살라의 모습을 다시 찾을 수 있을까?</td></tr></table></div>';
+	var vandijk = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/vandijk.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 버질 반다이크</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1991.07.08(27세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 193cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 센터백</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><span style="font-weight:700">퀸즈 파크 FC</span>(2012~2013)<br><br><a href="https://namu.wiki/w/FC%20%ED%9D%90%EB%A1%9C%EB%8B%9D%EC%96%B8"><span style="font-weight:700">FC 흐로닝언</span></a>(2011~2013)<br><br><a href="https://namu.wiki/w/%EC%85%80%ED%8B%B1%20FC"><span style="font-weight:700">셀틱 FC</span></a> (2013~2015)<br><br><a href="https://namu.wiki/w/%EC%82%AC%EC%9A%B0%EC%8A%A4%ED%96%84%ED%8A%BC%20FC"><span style="font-weight:700">사우스햄튼 FC</span></a>(2015~2017)<br><br><a href="https://namu.wiki/w/%EB%A6%AC%EB%B2%84%ED%92%80%20FC"><span style="font-weight:700">리버풀 FC </span></a>(2018~ )<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>네덜란드 국적의 리버풀 소속 축구 선수. 포지션은 센터백이다.FC 흐로닝언, 셀틱 FC, 사우스햄튼 FC를 거쳐 2018년 1월 역대 수비수 최고 이적료를 기록하며 리버풀 FC로 이적하였다. <br>라파엘 베니테즈 사퇴 이후 리버풀의 고질적 약점으로 계속 언급된 수비력의 수준을 한 단계 이상 끌어올리며 팀을 UEFA 챔피언스 리그 준우승으로 이끈 수비진의 리더이자 오렌지 군단의 캡틴이며 2019년 현재 세계 최고의 수비수로 평가 받고 있다.</td></tr></table></div>';
+	var seolhyeon = '<div class="tg-wrap"><table class="tg"><tr><th class="tg-gkra" rowspan="8"><img src="/static/wijnaldum.png"></th><th class="tg-bbxk">선수 정보</th></tr><tr><td class="tg-y3j4"><span style="font-weight:bold">이름</span>: 조르지니오 베이날둠</td></tr><tr><td class="tg-x823"><span style="font-weight:bold">나이</span>: 1990.11.11(28세)</td></tr><tr><td class="tg-y7f3"><span style="font-weight:bold">키</span>: 175cm</td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">포지션</span>: 중앙 미드필더, 수비형 미드필더</td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">소속팀</span><br><br><a href="https://namu.wiki/w/%ED%8E%98%EC%98%88%EB%85%B8%EB%A5%B4%ED%8A%B8%20%EB%A1%9C%ED%85%8C%EB%A5%B4%EB%8B%B4"><span style="font-weight:700">페예노르트 로테르담</span></a>(2007~2011)<br><br><a href="https://namu.wiki/w/PSV%20%EC%97%90%EC%9D%B8%ED%8A%B8%ED%98%B8%EB%B2%88?from=PSV%20%EC%95%84%EC%9D%B8%ED%8A%B8%ED%98%B8%EB%B2%A4"><span style="font-weight:700">PSV 에인트호번</span></a> (2011~2015)<br><br><a href="https://namu.wiki/w/%EB%A7%A8%EC%B2%B4%EC%8A%A4%ED%84%B0%20%EC%8B%9C%ED%8B%B0%20FC"><span style="font-weight:700">뉴캐슬 유나이티드 FC</span></a> (2015~2016)<br><br><a href="https://namu.wiki/w/%EB%A6%AC%EB%B2%84%ED%92%80%20FC"><span style="font-weight:700">리버풀 FC </span></a>(2016~ )<br></td></tr><tr><td class="tg-v6aa"><span style="font-weight:bold">커리어</span></td></tr><tr><td class="tg-ghqg"><span style="font-weight:bold">한줄평</span><br><br>리버풀 FC의 축구 선수. 네덜란드 국적이다. 포지션은 중앙 미드필더 주사위형 미드필더로 불린다. 그 이유는 그가 잘할 때와 못할 때의 차이가 극명하기 때문... 팬들의 마음을 졸이는 선수이다.</td></tr></table></di0v>';
+
+	
+	// When the user clicks the button, open the modal 
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	modal.style.display = "none";
+	}
+	playButton.onclick = function(){
+		myFunction()
+	}
+	stopButton.onclick = function(){
+		var ASOLE = myFunction2();
+		console.log(ASOLE);
+		if(miniBox1.innerHTML=='솔비'){
+			modal.style.display = "block";
+			modalContent.innerHTML = "<html><body><img></body></html>".replace('<img>','<img src = `data:image/png;base64,AAA`>'.replace('AAA',ASOLE));
+		}
+	}
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+	}
+	}
+</script>    
+</body>
+</html>

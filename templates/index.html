@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flash by 면탱무</title>
+    <link rel="stylesheet"  href="static/reset.css">  <!--스타일 시트-->
+    <link rel="stylesheet"  href="static/bootstrap.css">  <!--스타일 시트-->
+    <link rel="stylesheet"  href="static/styles.css">  <!--스타일 시트-->
+    <link rel="stylesheet"  href="static/styleBt.css">  <!--스타일 시트-->
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <style>
+TABLE, TD {font-size:20px} 
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 45%;
+
+}
+
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+    <header>
+        <div>
+                <div id="hdl"></div>
+                <center><h1 id="trapezoid">Flash</h1></center>
+                 <div id="hdr">
+                        <ul id="navi" class="nav nav-tabs">
+                        <li role="presentation"><a href="#">Home</a></li>
+                        <li role="presentation"><a href="#">developer</a></li>
+                        <li role="presentation"><a href="#">Messages</a></li>
+                        </ul>
+                 </div>
+        </div>
+    </header>
+    <div id="myModal" class="modal">
+					<!-- Modal content -->
+        <span class="close">&times;</span>
+        <div id = 'content'class="modal-content">
+                <p>Some text in the Modal..</p>
+				<img id = 'returnImage' src=""/>
+        </div>
+        </div>
+    
+    <main class="container">
+        <section id="left" class="lr panel panel-default"> 
+            <div id="jemok1" class="panel-body"><p>Video</p></div>
+            <div id="videoplusimg" class="panel-footer">
+            <div id="fi_video">
+                <img src="{{url_for('video_feed')}}"width="100%"height="100%" />
+            </div>
+            <div id="fi_img">
+
+         </div>
+        </div>
+        </div>
+        </section>
+        <section id="right" class="lr" class="panel panel-default"> 
+                        <div id="jemok2" class="panel-body"><p>연예인 닮은 꼴 찾기</p></div>
+            <div id="fi_player">
+                    <table class="table table-striped" width="200" height="200">
+                        <tr id="select_table">
+                                <td class="pl_img" colspan="2" rowspan="1"><img id="ItemPreview" style="border : 3px solid white" src="" ></td>
+                                <td id="miniBox1" class="explain"></td>
+                                <td id="miniBox1_si" class="explain"></td>
+                        </tr>   
+                        <tr id="select_table2">
+                                <td class="pl_img" colspan="2" rowspan="1"><img id="ItemPreview2" style="border : 3px solid white" src="" ></td>
+                                <td id="miniBox2" class="explain"></td>
+                                <td id="miniBox2_si" class="explain"></td>
+                        </tr>
+                        <tr id="select_table3">
+                                <td class="pl_img" colspan="2" rowspan="1"><img id="ItemPreview3"style="border : 3px solid white" src="" ></td>
+                                <td id="miniBox3"class="explain"></td>
+                                <td id="miniBox3_si"class="explain"></td>
+                        </tr>
+                        <tr id="select_table4">
+                                <td class="pl_img" colspan="2" rowspan="1"><img id="ItemPreview4"style="border : 3px solid white" src="" ></td>
+                                <td id="miniBox4" class="explain"></td>
+                                <td id="miniBox4_si" class="explain"></td>
+                        </tr>
+                </table>
+            </div>
+            <menu>
+                <fieldset id="buttonimg">
+                        <button id = "playButton" style = "color : black">시작하기</button>
+                        <button id = "stopButton" style = "color : black">닮은꼴</button>
+                </menu>
+        </section>
+    </main>
+<script>
+		var miniBox1 = document.getElementById("miniBox1");
+		var miniBox2 = document.getElementById("miniBox2");
+		var miniBox3 = document.getElementById("miniBox3");
+		var miniBox4 = document.getElementById("miniBox4");
+        
+		var miniBox1_si = document.getElementById("miniBox1_si");
+        var miniBox2_si = document.getElementById("miniBox2_si");
+        var miniBox3_si = document.getElementById("miniBox3_si");
+        var miniBox4_si = document.getElementById("miniBox4_si");
+        
+
+        var ItemPreview  = document.getElementById("ItemPreview");
+        var ItemPreview2  = document.getElementById("ItemPreview2");
+        var ItemPreview3  = document.getElementById("ItemPreview3");
+        var ItemPreview4  = document.getElementById("ItemPreview4");
+
+		
+
+		function myFunction(){
+    myVar = setInterval(function() {
+    $.ajax({
+        url: '/api/info',
+        success: function(data) {
+            $('#miniBox1').html(data['description2']);
+	        $('#miniBox1_si').html(data['description']);
+            var image_replace = data['image'].replace("b","").replace(/'/gi,'')
+            $('#ItemPreview').attr('src', `data:image/png;base64,${image_replace}`);
+              }
+          });
+    
+    $.ajax({
+        url: '/api/info2',
+        success: function(data) {
+            $('#miniBox2').html(data['description2']);
+		$('#miniBox2_si').html(data['description']);
+            var image_replace2 = data['image'].replace("b","").replace(/'/gi,'')
+            $('#ItemPreview2').attr('src', `data:image/png;base64,${image_replace2}`);
+              }
+          });
+    
+    $.ajax({
+        url: '/api/info3',
+        success: function(data) {
+            $('#miniBox3').html(data['description2']);
+		$('#miniBox3_si').html(data['description']);
+            var image_replace3 = data['image'].replace("b","").replace(/'/gi,'')
+            $('#ItemPreview3').attr('src', `data:image/png;base64,${image_replace3}`);
+              }
+          });
+    
+    $.ajax({
+        url: '/api/info4',
+        success: function(data) {
+         	$('#miniBox4').html(data['description2']);
+		$('#miniBox4_si').html(data['description']);
+            var image_replace4 = data['image'].replace("b","").replace(/'/gi,'')
+            $('#ItemPreview4').attr('src', `data:image/png;base64,${image_replace4}`);
+              }
+          });
+	},1000);
+}
+	function myFunction2(){
+        clearTimeout(myVar);
+		var image_replace = ''; 
+        $.ajax({
+                url: '/api/info',
+                success: function(data) {
+                $('#miniBox1').html(data['description2']);
+                $('#miniBox1_si').html(data['description']);
+                var image_replace = data['image'].replace("b","").replace(/'/gi,'');
+                $('#ItemPreview').attr('src', `data:image/png;base64,${image_replace}`);
+                }
+                        });
+
+        $.ajax({
+                url: '/api/info2',
+                success: function(data) {
+                $('#miniBox2').html(data['description2']);
+                $('#miniBox2_si').html(data['description']);
+                var image_replace2 = data['image'].replace("b","").replace(/'/gi,'')
+                $('#ItemPreview2').attr('src', `data:image/png;base64,${image_replace2}`);     
+                
+                var imageSrc = $('#ItemPreview').attr('src');
+				var modalContent = document.getElementById('content');
+				modalContent.innerHTML = '<!DOCTYPE html><html><head><style>div.gallery {margin: 5px;border: 1px solid #ccc;float: left;width: 300px;height:450px;}div.gallery:hover {border: 3px solid #777;}div.gallery img {width: 100%;height: 100%;}div.desc {padding: 15px;text-align: center;}</style></head><body><p style = "font-size : 25px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp당신의 닮은꼴 연예인은 "<b>!B!</b>" 입니다</p></br></br><div class="gallery"><img src="!A!" alt="Cinque Terre" width="300" height="450"></a><div class="desc" style="color: #fefefe;font-size : 15px;">당신의 얼굴 입니다.</div></div><div class="gallery"><img src="/static/!C!.jpg" alt="Forest" width="300" height="450"><div class="desc" style="font-size : 15px; color: #fefefe;">연예인 얼굴 입니다.</div></div></body></html>'.replace('"!A!"',imageSrc).replace('!C!',data['description2']).replace("!B!",data['description2']);
+				$('.modal').css("display","block");
+                                }
+                });
+        
+        $.ajax({
+                url: '/api/info3',
+                success: function(data) {
+                $('#miniBox3').html(data['description2']);
+                $('#miniBox3_si').html(data['description']);
+                var image_replace3 = data['image'].replace("b","").replace(/'/gi,'')
+                $('#ItemPreview3').attr('src', `data:image/png;base64,${image_replace3}`);
+                        }
+                });
+        
+        $.ajax({
+			
+                url: '/api/info4',
+                success: function(data) {
+                $('#miniBox4').html(data['description2']);
+                $('#miniBox4_si').html(data['description']);
+                var image_replace4 = data['image'].replace("b","").replace(/'/gi,'')
+                $('#ItemPreview4').attr('src', `data:image/png;base64,${image_replace4}`);
+                        }
+                });
+        }
+
+					/////////////////////////////////////////////////////////////////////////////////
+	
+	
+	// Get the modal
+	var modal = document.getElementById('myModal');
+	var modalContent = document.getElementById('content');
+	// Get the button that opens the modal
+	var miniBox1 = document.getElementById("miniBox1");
+	var miniBox2 = document.getElementById("miniBox2");
+	var miniBox3 = document.getElementById("miniBox3");
+	var miniBox4 = document.getElementById("miniBox4");
+        
+
+	var select_table = document.getElementById("select_table");
+	var select_table2 = document.getElementById("select_table2");
+	var select_table3 = document.getElementById("select_table3");
+	var select_table4 = document.getElementById("select_table4");
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close");
+	var x = '<span class="close">&times;</span>'
+	var playButton = document.getElementById("playButton");
+	var stopButton = document.getElementById("stopButton");
+
+        
+	// 모달 콘텐트 스타일 
+	
+	// 로또풀 
+	
+	
+	// When the user clicks the button, open the modal 
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	modal.style.display = "none";
+	}
+	playButton.onclick = function(){
+		myFunction()
+	}
+	stopButton.onclick = function(){
+		 myFunction2();
+		
+	}
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = "none";
+        myFunction();
+	}
+	}
+</script>    
+</body>
+</html>
